@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+import { simpleFetch } from "../utils";
+
 class ExampleOne extends Component {
   state = {
     values: { first: "", last: "", email: "" },
@@ -31,9 +33,8 @@ class ExampleOne extends Component {
   handleSave(event) {
     event.preventDefault();
     this.setState({ loading: true }, () => {
-      new Promise((resolve, reject) => {
-        setTimeout(() => reject({ error: "Network request failure." }), 1500);
-      })
+      simpleFetch
+        .post("http://localhost:3001/create")
         .catch(error => {
           // TODO: Show the user an error notification
         })
