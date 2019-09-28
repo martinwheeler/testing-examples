@@ -4,6 +4,10 @@
   "description": "",
   "keywords": [],
   "main": "src/index.js",
+  "private": true,
+  "workspaces": [
+    "src/backend"
+  ],
   "dependencies": {
     "@material-ui/core": "4.4.3",
     "@material-ui/icons": "4.4.3",
@@ -17,6 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:backend": "cd src/backend && yarn start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
