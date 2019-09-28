@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import SaveIcon from "@material-ui/icons/Save";
 
@@ -18,10 +18,6 @@ class ExampleOne extends Component {
   handleChange = this.handleChange.bind(this);
   handleSave = this.handleSave.bind(this);
   submitRef = React.createRef();
-
-  componentDidUpdate() {
-    console.warn("VALUES: ", this.state.values);
-  }
 
   handleChange(fieldName) {
     return event => {

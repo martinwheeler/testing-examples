@@ -3,8 +3,6 @@ import React, { Component, Fragment } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-import AlertDialog from "../components/dialog";
-
 const LAST_STEP = 3;
 
 class ExampleOne extends Component {
