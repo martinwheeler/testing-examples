@@ -1,0 +1,48 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.nav-wrapper {
+  display: flex;
+}
+
+.nav-wrapper > div {
+  padding: 0 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* max-width: 800px; */
+  margin: 30px 0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+}
+
+.spaced-evenly > button,
+.spaced-evenly > div {
+  margin: 0 5px;
+}
+
+.right-aligned {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dialog-body {
+  min-width: 500px;
+}
+
+.button-bar {
+  margin: 15px 0;
+}
+
+.icon-small {
+  font-size: 12px;
+}
