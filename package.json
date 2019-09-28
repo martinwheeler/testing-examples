@@ -14,13 +14,14 @@
     "react": "16.8.6",
     "react-dom": "16.8.6",
     "react-scripts": "3.0.1",
+    "stmux": "^1.7.1",
     "wouter": "2.2.1"
   },
   "devDependencies": {
     "typescript": "3.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "stmux -- [ 'react-scripts start' : 'yarn start:backend' ]",
     "start:backend": "cd src/backend && yarn start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
