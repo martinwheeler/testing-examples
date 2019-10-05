@@ -39,16 +39,11 @@ class ExampleOne extends Component {
           // TODO: Show the user an error notification
         })
         .finally(() => {
-          this.setState(
-            {
-              loading: false,
-              success: true,
-              values: { first: "", last: "", email: "" }
-            },
-            () => {
-              setTimeout(() => this.setState({ success: false }), 2500);
-            }
-          );
+          this.setState({
+            loading: false,
+            success: true,
+            values: { first: "", last: "", email: "" }
+          });
         });
     });
   }
