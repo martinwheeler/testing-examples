@@ -11,6 +11,7 @@ export default function AlertDialog({
   label,
   title,
   Buttons,
+  open: propOpen,
   ...rest
 }) {
   const [open, setOpen] = React.useState(false);
@@ -23,11 +24,19 @@ export default function AlertDialog({
     setOpen(false);
   };
 
+  if (!open && propOpen) {
+    // HACK: Allows passing a prop to toggle the open state
+    setOpen(true);
+  }
+
   return (
     <Fragment>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        {label}
-      </Button>
+      {label ? (
+        <Button variant="outlined" onClick={handleClickOpen}>
+          {label}
+        </Button>
+      ) : null}
+
       <Dialog
         open={open}
         onClose={handleClose}
@@ -38,7 +47,9 @@ export default function AlertDialog({
         <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
         <DialogContent className="dialog-body">
           <DialogContentText id="alert-dialog-description">
-            {children}
+            {typeof children === "function"
+              ? children({ handleClose })
+              : children}
           </DialogContentText>
         </DialogContent>
         <DialogActions>{(Buttons && <Buttons />) || null}</DialogActions>
