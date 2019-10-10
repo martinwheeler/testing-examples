@@ -70,7 +70,16 @@ class ExampleOne extends Component {
           cancel
         </AlertDialog>
 
-        <AlertDialog disableBackdropClick label="Create User" title="New User">
+        <AlertDialog
+          onClose={() => {
+            this.setState({ errorOpen: true }, () =>
+              this.setState({ errorOpen: false })
+            );
+          }}
+          disableBackdropClick
+          label="Create User"
+          title="New User"
+        >
           {({ handleClose }) => {
             this.handleClose = handleClose;
 

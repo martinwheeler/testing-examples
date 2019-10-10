@@ -6,12 +6,15 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+import CloseIcon from "@material-ui/icons/Close";
+
 export default function AlertDialog({
   children,
   label,
   title,
   Buttons,
   open: propOpen,
+  onClose,
   ...rest
 }) {
   const [open, setOpen] = React.useState(false);
@@ -44,6 +47,13 @@ export default function AlertDialog({
         aria-describedby="alert-dialog-description"
         {...rest}
       >
+        <CloseIcon
+          onClick={() => {
+            handleClose();
+            onClose && onClose();
+          }}
+          className="dialog-close-icon"
+        />
         <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
         <DialogContent className="dialog-body">
           <DialogContentText id="alert-dialog-description">
