@@ -65,7 +65,7 @@ class ExampleOne extends Component {
 
     return (
       <div className="container">
-        <h1>Example Two (can't exit)</h1>
+        <h1>Dog Register</h1>
         <AlertDialog title="Error" open={errorOpen}>
           cancel
         </AlertDialog>
@@ -77,8 +77,8 @@ class ExampleOne extends Component {
             );
           }}
           disableBackdropClick
-          label="Create User"
-          title="New User"
+          label="Add a Dog"
+          title="New Dog"
         >
           {({ handleClose }) => {
             this.handleClose = handleClose;
@@ -88,34 +88,34 @@ class ExampleOne extends Component {
                 <form onSubmit={this.handleSave}>
                   <div className="form-container">
                     <TextField
-                      id="standard-name"
-                      label="First Name"
+                      id="dog-name"
+                      label="Dog Name"
                       value={values.name}
-                      onChange={this.handleChange("first")}
+                      onChange={this.handleChange("dog-name")}
                       margin="normal"
                     />
                     <TextField
-                      id="standard-name"
-                      label="Last Name"
-                      value={values.name}
-                      onChange={this.handleChange("last")}
+                      id="breed"
+                      label="Dog Breed"
+                      value={values.breed}
+                      onChange={this.handleChange("breed")}
                       margin="normal"
                     />
                     <TextField
-                      id="standard-name"
-                      label="Email"
-                      type="email"
-                      autoComplete="email"
-                      value={values.name}
-                      onChange={this.handleChange("email")}
-                      margin="normal"
+                      id="date"
+                      label="Dog Date of Birth"
+                      type="date"
+                      defaultValue="2010-10-10"
+                      InputLabelProps={{
+                        shrink: true
+                      }}
                     />
                     <div className="button-bar right-aligned">
                       {loading ? (
                         <CircularProgress />
                       ) : success ? (
                         <div style={{ color: "green" }}>
-                          User created successfully!
+                          Dog added successfully!
                         </div>
                       ) : (
                         <div className="spaced-evenly">

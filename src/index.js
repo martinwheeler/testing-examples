@@ -30,7 +30,7 @@ function App() {
         </div>
       </div>
       <Route path="/">
-        <h1>Hello Testing</h1>
+        <h1>Demo: Testing doesn't bite, unless it does</h1>
       </Route>
       <Route path="/example-1">
         <ExampleOne />

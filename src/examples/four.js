@@ -50,35 +50,35 @@ class ExampleOne extends Component {
 
     return (
       <div className="container">
-        <h1>Example Four (never loads)</h1>
+        <h1>Add New Dog</h1>
         <form onSubmit={this.handleSave}>
           <div className="form-container">
-            <TextField
-              id="standard-name"
-              label="First Name"
-              value={values.first}
-              onChange={this.handleChange("first")}
-              margin="normal"
-              required
-            />
-            <TextField
-              id="standard-name"
-              label="Last Name"
-              value={values.last}
-              onChange={this.handleChange("last")}
-              margin="normal"
-              required
-            />
-            <TextField
-              id="standard-name"
-              label="Email"
-              type="email"
-              autoComplete="email"
-              value={values.email}
-              onChange={this.handleChange("email")}
-              margin="normal"
-              required
-            />
+              <TextField
+                id="dog-name"
+                label="Dog Name"
+                value={values.name}
+                onChange={this.handleChange("dog-name")}
+                margin="normal"
+                required
+              />
+              <TextField
+                id="breed"
+                label="Dog Breed"
+                value={values.breed}
+                onChange={this.handleChange("breed")}
+                margin="normal"
+                required
+              />
+              <TextField
+                id="date"
+                label="Dog Date of Birth"
+                type="date"
+                defaultValue="2010-10-10"
+                InputLabelProps={{
+                  shrink: true
+                }}
+                required
+              />
 
             <div className="button-bar right-aligned">
               {loading ? (

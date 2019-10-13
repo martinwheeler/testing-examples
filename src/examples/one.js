@@ -2,6 +2,12 @@ import React, { Component, Fragment } from "react";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
@@ -46,7 +52,7 @@ class ExampleOne extends Component {
 
     return (
       <div className="container">
-        <h1>Example One (multi form blows up)</h1>
+        <h1>Dog Registration Form</h1>
         {error ? (
           <Paper style={{ padding: "10px", color: "red" }}>
             <Typography variant="h5" component="h3">
@@ -63,73 +69,76 @@ class ExampleOne extends Component {
               {step === 0 ? (
                 <Fragment>
                   <TextField
-                    id="standard-name"
-                    label="First Name"
+                    id="owner-name"
+                    label="Owner Name"
                     value={values.name}
-                    onChange={this.handleChange("first")}
+                    onChange={this.handleChange("owner-name")}
                     margin="normal"
                   />
                   <TextField
-                    id="standard-name"
-                    label="Last Name"
+                    id="dog-name"
+                    label="Dog Name"
                     value={values.name}
-                    onChange={this.handleChange("last")}
-                    margin="normal"
-                  />
-                  <TextField
-                    id="standard-name"
-                    label="Email"
-                    type="email"
-                    autoComplete="email"
-                    value={values.name}
-                    onChange={this.handleChange("email")}
-                    margin="normal"
-                  />
-                </Fragment>
-              ) : null}
-              {step === 1 ? (
-                <Fragment>
-                  <TextField
-                    id="standard-name"
-                    label="Email"
-                    type="email"
-                    autoComplete="email"
-                    value={values.name}
-                    onChange={this.handleChange("email")}
+                    onChange={this.handleChange("dog-name")}
                     margin="normal"
                   />
                   <TextField
                     id="date"
-                    label="Date of Birth"
+                    label="Dog Date of Birth"
                     type="date"
-                    defaultValue="2000-01-01"
+                    defaultValue="2010-10-10"
                     InputLabelProps={{
                       shrink: true
                     }}
                   />
                 </Fragment>
               ) : null}
+              {step === 1 ? (
+                <Fragment>
+                  <TextField
+                    id="breed"
+                    label="Dog Breed"
+                    value={values.breed}
+                    onChange={this.handleChange("breed")}
+                    margin="normal"
+                  />
+                  <TextField
+                    id="dog-colour"
+                    label="Dog Colour"
+                    value={values.colour}
+                    onChange={this.handleChange("colour")}
+                    margin="normal"
+                  />
+                  <FormControl>
+                    <FormLabel component="legend">Dog Gender</FormLabel>
+                    <RadioGroup name="gender" onChange={this.handleChange("gender")}>
+                      <FormControlLabel value="female" control={<Radio />} label="Female" />
+                      <FormControlLabel value="male" control={<Radio />} label="Male" />
+                    </RadioGroup>
+                  </FormControl>
+                </Fragment>
+              ) : null}
               {step === 2 ? (
                 <Fragment>
                   <TextField
-                    id="standard-name"
-                    label="Street"
+                    id="street-address"
+                    label="Street Address"
                     value={values.name}
-                    onChange={this.handleChange("email")}
+                    onChange={this.handleChange("street-address")}
                     margin="normal"
                   />
                   <TextField
-                    id="standard-name"
+                    id="suburb"
                     label="Suburb"
-                    value={values.name}
-                    onChange={this.handleChange("email")}
+                    value={values.suburb}
+                    onChange={this.handleChange("suburb")}
                     margin="normal"
                   />
                   <TextField
-                    id="standard-name"
-                    label="Post Code"
-                    value={values.name}
-                    onChange={this.handleChange("email")}
+                    id="postcode"
+                    label="Postcode"
+                    value={values.postcode}
+                    onChange={this.handleChange("postcode")}
                     margin="normal"
                   />
                 </Fragment>
