@@ -2,12 +2,12 @@ import React, { Component, Fragment } from "react";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
@@ -109,11 +109,24 @@ class ExampleOne extends Component {
                     onChange={this.handleChange("colour")}
                     margin="normal"
                   />
-                  <FormControl>
-                    <FormLabel component="legend">Dog Gender</FormLabel>
-                    <RadioGroup name="gender" onChange={this.handleChange("gender")}>
-                      <FormControlLabel value="female" control={<Radio />} label="Female" />
-                      <FormControlLabel value="male" control={<Radio />} label="Male" />
+                  <FormControl style={{ paddingTop: "40px" }}>
+                    <FormLabel component="legend" style={{ textAlign: "left" }}>
+                      Dog Gender
+                    </FormLabel>
+                    <RadioGroup
+                      name="gender"
+                      onChange={this.handleChange("gender")}
+                    >
+                      <FormControlLabel
+                        value="female"
+                        control={<Radio />}
+                        label="Female"
+                      />
+                      <FormControlLabel
+                        value="male"
+                        control={<Radio />}
+                        label="Male"
+                      />
                     </RadioGroup>
                   </FormControl>
                 </Fragment>
