@@ -90,6 +90,7 @@ class ExampleOne extends Component {
                     InputLabelProps={{
                       shrink: true
                     }}
+                    style={{ marginTop: "40px" }}
                   />
                 </Fragment>
               ) : null}
