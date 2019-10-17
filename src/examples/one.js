@@ -4,17 +4,18 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 const LAST_STEP = 3;
 
 class ExampleOne extends Component {
   state = { values: {}, loading: false, step: 0, error: null };
+  handleSubmit = this.handleSubmit.bind(this);
   handleChange = this.handleChange.bind(this);
   goForward = this.goForward.bind(this);
   goBack = this.goBack.bind(this);
@@ -47,8 +48,20 @@ class ExampleOne extends Component {
     }
   }
 
+  handleSubmit() {
+    this.setState({ loading: true }, () => {
+      setTimeout(
+        () =>
+          this.setState({ success: true, loading: false }, () => {
+            setTimeout(() => this.setState({ success: false }), 1500);
+          }),
+        500
+      );
+    });
+  }
+
   render() {
-    const { values, step, error } = this.state;
+    const { values, step, error, loading, success } = this.state;
 
     return (
       <div className="container">
@@ -158,18 +171,29 @@ class ExampleOne extends Component {
                 </Fragment>
               ) : null}
               <div className="button-bar right-aligned">
-                <div className="spaced-evenly">
-                  {step > 0 ? (
-                    <Button variant="outlined" onClick={this.goBack}>
-                      previous
-                    </Button>
-                  ) : null}
-                  {step < LAST_STEP - 1 ? (
-                    <Button variant="outlined" onClick={this.goForward}>
-                      continue
-                    </Button>
-                  ) : null}
-                </div>
+                {loading ? (
+                  <CircularProgress />
+                ) : success ? (
+                  <div style={{ color: "green" }}>Dog added successfully!</div>
+                ) : (
+                  <div className="spaced-evenly">
+                    {step > 0 ? (
+                      <Button variant="outlined" onClick={this.goBack}>
+                        previous
+                      </Button>
+                    ) : null}
+                    {step < LAST_STEP - 1 ? (
+                      <Button variant="outlined" onClick={this.goForward}>
+                        continue
+                      </Button>
+                    ) : null}
+                    {step === LAST_STEP - 1 ? (
+                      <Button variant="outlined" onClick={this.handleSubmit}>
+                        submit
+                      </Button>
+                    ) : null}
+                  </div>
+                )}
               </div>
             </div>
           </Fragment>
